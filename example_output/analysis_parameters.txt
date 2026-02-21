@@ -1,0 +1,17 @@
+SEM Pore Analysis — Parameters
+========================================
+Input directory:    /Users/harsh/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/1 Donepezil/SEM/Updated 0126/20251226/sem-pore-analysis/example_data
+Images analysed:    3
+Block size:         899
+C value:            10
+Image width (px):   1536
+HFW (µm):           207.0
+Pixels per µm:      7.42
+Min pore area:      0.5 µm²
+Max pore diameter:  50.0 µm
+Blur kernel:        5×5
+Crop height:        1000 px
+Morph kernel:       3×3
+Magnification filter: none
+Output DPI:         300
+Output format:      png

@@ -1,0 +1,4 @@
+image,n_pores,mean_diameter_um,std_um,median_um,min_um,max_um
+sample_1,455,3.37,4.81,1.71,0.8,40.33
+sample_2,24,4.35,8.66,1.46,0.81,39.75
+sample_3,341,3.77,4.36,2.29,0.8,43.27
