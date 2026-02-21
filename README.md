@@ -3,12 +3,13 @@
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-Automated pore size quantification from Scanning Electron Microscopy (SEM) images using adaptive Gaussian thresholding and contour analysis. Designed for batch processing of porous material cross-sections imaged at known magnification.
+Automated pore size quantification from Scanning Electron Microscopy (SEM) images using adaptive Gaussian thresholding and contour analysis. Built for **batch processing** — recursively walks an input directory and analyses every image in a single run. In the original study, this pipeline was used to batch-analyse **62 SEM micrographs**, detecting over **26,000 pores** across multiple sample categories and time points, but the tool scales to any number of images.
 
 ## Overview
 
 In SEM micrographs of porous materials, pores appear as dark regions against a brighter solid matrix. This tool segments those dark regions, filters by size, and computes equivalent circular diameters for each detected pore, providing:
 
+- **Scalable batch analysis** — point it at a directory tree with any number of images and get a consolidated CSV
 - **Per-image pore statistics** (count, mean/median/SD diameter)
 - **Annotated images** with green pore contours and red diameter labels
 - **Binary masks** (white = pore, black = background)
@@ -96,6 +97,20 @@ python sem_pore_analysis.py --input example_data/
 ```bash
 python generate_annotated_images.py --input example_data/
 ```
+
+### Batch analysis
+
+Both scripts recursively walk the input directory, so you can point them at a folder tree containing hundreds of images and every `.tif` file will be processed in one run:
+
+```bash
+# Analyse an entire dataset organised in sub-folders
+python sem_pore_analysis.py --input /path/to/dataset/
+
+# Only process 1000x magnification images
+python sem_pore_analysis.py --input /path/to/dataset/ --magnification-filter 1000x
+```
+
+In the original study this pipeline batch-processed **62 images** and detected **>26,000 pores** across multiple experimental conditions. The tool imposes no upper limit on dataset size.
 
 ### Custom parameters
 
